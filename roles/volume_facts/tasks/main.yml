@@ -1,0 +1,16 @@
+---
+# tasks file for audit_events_facts
+- name: Get GreenLake Volumes
+  greenlake_volume_facts:
+    config: "{{ config }}"
+    # id: "{{id |default(omit) }}"
+    # name: "{{name |default(omit) }}"
+    name: "AnsibleTestVolume"
+    # options:
+    # - getSnapshots
+    params:
+      limit: 10 # int | Number of items to return at a time (optional)
+      offset: 0 # int | The offset of the first item in the collection to return (optional)
+
+- debug: var=volumes
+- debug: var=snapshots

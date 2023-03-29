@@ -1,0 +1,4 @@
+---
+# defaults file for audit_events_facts
+config: "~/.ansible/collections/ansible_collections/hpe/greenlake_data_services/roles/host_facts/files/greenlake_config.json"
+

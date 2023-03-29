@@ -1,0 +1,38 @@
+---
+# tasks file for audit_events_facts
+- name: Create GreenLake DSCC Volume
+  greenlake_volume:
+    config: "{{ config }}"
+    system_id: "{{system_id |default(omit) }}"
+    state: present
+    data:
+      comments: "Ansible library test"
+      count: 2
+      data_reduction: True
+      name: "AnsibleTestVolume"
+      size_mib: 16384.0
+      snap_cpg: "SSD_r6"
+      user_cpg: "SSD_r6"
+
+- debug: var=volumes
+
+- name: Update GreenLake DSCC Volume
+  greenlake_volume:
+    config: "{{ config }}"
+    system_id: "{{system_id |default(omit) }}"
+    state: present
+    data:
+      name: "AnsibleTestVolume"
+      new_name: "AnsibleTestVolume_updated"
+      size_mib: 16384.0
+      snap_cpg: "SSD_r6"
+      user_cpg: "SSD_r6"
+- debug: var=volumes
+
+
+- name: Delete GreenLake DSCC Volume
+  greenlake_volume:
+    config: "{{ config }}"
+    state: absent
+    data:
+      name: "AnsibleTestVolume"

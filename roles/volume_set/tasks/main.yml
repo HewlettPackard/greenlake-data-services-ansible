@@ -1,0 +1,65 @@
+---
+#tasks file for audit_events_facts
+- name: Create GreenLake DSCC Volume Set
+  greenlake_volumeset:
+    config: "{{ config }}"
+    device_type: 1
+    system_id: "2M29510B8L"
+    state: present
+    data:
+      # app_set_business_unit: "HPE"
+      # app_set_comments: "Edit"
+      app_set_importance: "MEDIUM"
+      app_set_name: "sije-ansble-test-volumeset"
+      name: "ansible_volume_set"
+      app_set_type: "OTHER"
+
+- debug: var=volume_sets
+
+- name: Update name of the DSCC Volume Set
+  greenlake_volumeset:
+    config: "{{ config }}"
+    device_type: 1
+    system_id: "2M29510B8L"
+    state: present
+    data:
+      name: "sije-ansble-test-volumeset"
+      new_name: "sije-ansble-test-volumeset_updated"
+- debug: var=volume_sets
+
+- name: Update GreenLake DSCC Volume Set with volumes
+  greenlake_volumeset:
+    config: "{{ config }}"
+    device_type: 1
+    system_id: "2M29510B8L"
+    state: present
+    data:
+      name: "sije-ansble-test-volumeset_updated"
+      app_set_type: "OTHER"
+      members:
+        - "AnsibleTestVolume.0"
+        - "AnsibleTestVolume.1"
+
+- debug: var=volume_sets
+
+- name: Export GreenLake DSCC Volume Set from system
+  greenlake_volumeset:
+    config: "{{ config }}"
+    device_type: 1
+    system_id: "2M29510B8L"
+    state: export
+    data:
+      name: "sije-ansble-test-volumeset"
+      host_group_ids:
+        - "7711267b21c145b9b65f84dbd0122acd"
+
+- debug: var=volume_sets
+
+- name: Delete GreenLake DSCC Volume Set
+  greenlake_volumeset:
+    config: "{{ config }}"
+    device_type: 1
+    system_id: "2M29510B8L"
+    state: absent
+    data:
+      name: "sije-ansble-test-volumeset"
