@@ -1,0 +1,36 @@
+---
+# tasks file for audit_events_facts
+- name: Create GreenLake DSCC Host
+  greenlake_host:
+    config: "{{ config }}"
+    state: present
+    data:
+      initiator_ids:
+        - "f582f56aa7b24964aca9b08496d7e378"
+      name: "hostAnsibleTest"
+      operating_system: "Ubuntu"
+      user_created: True
+
+- debug: var=hosts
+
+- name: Update GreenLake DSCC Host Name
+  greenlake_host:
+    config: "{{ config }}"
+    state: present
+    data:
+      initiator_ids:
+        - "b015d393e2274592a37cc7a579c8b0ca"
+      name: "hostAnsibleTest"
+      operating_system: "Ubuntu"
+      user_created: True
+      new_name: "hostAnsibleTestUpdated"
+
+- debug: var=hosts
+
+- name: Delete GreenLake DSCC Host
+  greenlake_host:
+    config: "{{ config }}"
+    state: absent
+    data:
+      name: "hostAnsibleTestUpdated"
+- debug: var=hosts

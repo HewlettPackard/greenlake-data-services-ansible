@@ -1,0 +1,10 @@
+---
+# vars file for host_facts
+system_id: 2M29510B8N
+initiators: []
+host_name: host_from_ansible
+host_group_name: hostGroupFromAnsible
+operating_system: RHE Linux
+workload: "Ubuntu"
+volume_set_name: ansibleVolumeSet
+volume_name: ansibleVolume

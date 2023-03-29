@@ -1,0 +1,5 @@
+{
+  "host": "https://scint-app.qa.cds.hpe.com",
+  "client_id": "client_id",
+  "client_secret": "<client_secret>"
+}

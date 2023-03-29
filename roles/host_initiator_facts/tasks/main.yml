@@ -1,0 +1,10 @@
+---
+# tasks file for audit_events_facts
+- name: Get GreenLake host initiators
+  greenlake_host_initiator_facts:
+    config: "{{ config }}"
+    id: "{{id |default(omit) }}"
+    params:
+      limit: 10 # int | Number of items to return at a time (optional)
+      offset: 0 # int | The offset of the first item in the collection to return (optional)
+- debug: var=host_initiators

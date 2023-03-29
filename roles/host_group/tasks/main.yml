@@ -1,0 +1,32 @@
+---
+# tasks file for audit_events_facts
+- name: Create GreenLake DSCC Host Group
+  greenlake_host_group:
+    config: "{{ config }}"
+    state: present
+    data:
+      name: "{{resource_name}}"
+      hostIds: "{{host_ids}}"
+      user_created: True
+
+- debug: var=host_groups
+
+- name: Update name of GreenLake DSCC Host Group
+  greenlake_host_group:
+    config: "{{ config }}"
+    state: present
+    data:
+      name: "{{resource_name}}"
+      new_name: "{{resource_name}}_updated"
+      updated_hosts: "{{update_host_ids}}"
+      user_created: True
+- debug: var=host_groups
+
+
+- name: Delete GreenLake DSCC Volume
+  greenlake_host_group:
+    config: "{{ config }}"
+    state: absent
+    data:
+      name: "{{resource_name}}_updated"
+      force: True

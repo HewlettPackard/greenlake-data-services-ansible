@@ -1,0 +1,19 @@
+---
+# tasks file for audit_events_facts
+- name: Get GreenLake Volume sets
+  greenlake_volumeset_facts:
+    config: "{{ config }}"
+    device_type: 1
+    system_id: "2M29510B8L"
+    # id: "2e3d21cdd4125a4a076334d458e2b0c5"
+    # name: vvset_ansible-vol
+    # options:
+    #   - getVolumes
+    #   - getSnapshots
+    # params:
+    #   limit: 10 # int | Number of items to return at a time (optional)
+    #   offset: 0 # int | The offset of the first item in the collection to return (optional)
+
+- debug: var=volume_sets
+- debug: var=snapshots
+- debug: var=volumes

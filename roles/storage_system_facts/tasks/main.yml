@@ -1,0 +1,11 @@
+---
+# tasks file for Storage Systems
+- name: Get GreenLake Storage Systems
+  greenlake_storage_system_facts:
+    config: "{{ config }}"
+    device_type: "{{device_type}}"
+    id: "{{id |default(omit) }}"
+    params:
+       limit: 10 # int | Number of items to return at a time (optional)
+       offset: 0 # int | The offset of the first item in the collection to return (optional)
+- debug: var=storage_systems

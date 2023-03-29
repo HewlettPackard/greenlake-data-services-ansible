@@ -1,0 +1,6 @@
+---
+# tasks file for audit_events_facts
+- name: Get GreenLake Audit Events
+  greenlake_audit_events_facts:
+    config: "{{ config }}"
+- debug: var=events

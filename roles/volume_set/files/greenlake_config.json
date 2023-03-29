@@ -1,0 +1,5 @@
+{
+  "host": "https://us1.data.cloud.hpe.com",
+  "client_id": "<client_id>",
+  "client_secret": "<client_id>"
+}

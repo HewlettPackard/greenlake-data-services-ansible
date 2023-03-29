@@ -1,0 +1,8 @@
+---
+# tasks file for audit_events_facts
+- name: Get GreenLake Hosts
+  greenlake_host_facts:
+    config: "{{ config }}"
+    id: "{{id |default(omit) }}"
+    name: "{{name |default(omit) }}"
+- debug: var=hosts
