@@ -1,5 +1,5 @@
 {
   "host": "https://us1.data.cloud.hpe.com",
-  "client_id": "9fe51456-29f8-42d7-84b1-b69c5fb6139f",
-  "client_secret": "b6651100cc7611edaa0f5e87f911fc93"
+  "client_id": "<client_id>",
+  "client_secret": "client_secret"
 }
