@@ -1,5 +1,5 @@
 {
   "host": "https://scint-app.qa.cds.hpe.com",
-  "client_id": "47b315a4-b236-45e3-91cd-1de37e1e0035",
-  "client_secret": "1e2c3fa4c94611edb252fac856a394db"
+  "client_id": <client_id>,
+  "client_secret": <client_secret>
 }
