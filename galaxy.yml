@@ -18,7 +18,6 @@ readme: README.md
 authors:
 - Sijeesh Kattumunda <sijeesh>
 
-
 ### OPTIONAL but strongly recommended
 # A short summary description of the collection
 description: Ansible Modules for HPE Greenlake Data Services
